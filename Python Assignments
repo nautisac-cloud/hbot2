@@ -1,0 +1,100 @@
+7th Oct 2025 Assignment:
+
+Q1) How many null values in this dataset?
+
+Code:
+total_Nulls = df.isnull().sum().sum(0)
+print("Total null values in the dataset: ", total_Nulls)
+
+Output:
+Total null values in the dataset:  334088
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Q2: How many rows and columns in the dataset?
+
+Code:
+# How many rows and columns in the dataset?
+# In Pandas, the .shape attribute of a DataFrame tells you the dimensions of the dataset:
+
+rows,column = df.shape
+print("Number of rows: ", rows)
+print("Number of columns: ", column)
+
+Output:
+Number of rows:  148654
+Number of columns:  13
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Q3: 66th percentile value for each numeric column programmatically
+
+Code:
+numeric_df = df.select_dtypes(include='number')
+
+# Calculate 66th percentile for each numeric column
+percentile_66 = numeric_df.quantile(0.66)
+
+print("66th percentile values for each numeric column:")
+print(percentile_66)
+
+Output:
+
+66th percentile values for each numeric column:
+Id                   98111.9800
+BasePay              81432.0188
+OvertimePay           2003.8646
+OtherPay              2272.1418
+Benefits             33233.0740
+TotalPay             91068.5372
+TotalPayBenefits    116052.8644
+Year                  2013.0000
+Notes                       NaN
+Status                      NaN
+Name: 0.66, dtype: float64
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q4: Unique Job titles
+
+Code:
+unique_job_titles = df['JobTitle'].nunique()
+print("Number of unique job titles:", unique_job_titles)
+
+Output:
+Number of unique job titles: 2159
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q5 Unique Agencies
+
+Code:
+# Find unique agencies
+unique_agencies_count = df['Agency'].nunique()
+print("Number of unique agencies:", unique_agencies_count)
+
+Output
+Number of unique agencies: 1
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Q6 Find unique years
+
+Code:
+#find unique number of years
+unique_years_count = df['Year'].nunique()
+
+print("Number of unique years:", unique_years_count)
+
+Output:
+Number of unique years: 4
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q7 Unique Employee names
+
+Code:
+# Unique Employee names
+unique_employee_names = df['EmployeeName'].nunique()
+print("Number of unique employee names:", unique_employee_names)
+
+Output:
+Number of unique employee names: 110811
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
